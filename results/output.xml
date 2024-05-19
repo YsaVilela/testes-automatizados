@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.3 on win32)" generated="2024-05-19T18:02:40.384337" rpa="false" schemaversion="5">
+<suite id="s1" name="Testes-demo" source="C:\dev\workspace\Testes-demo">
+<suite id="s1-s1" name="Testes" source="C:\dev\workspace\Testes-demo\testes">
+<suite id="s1-s1-s1" name="Navegacao" source="C:\dev\workspace\Testes-demo\testes\navegacao.robot">
+<test id="s1-s1-s1-t1" name="Caso de Teste: Realizar Compra Completa de Um Produto" line="7">
+<kw name="Dado que eu acesse o Swag Labs e realize o login correto" owner="setup_teardown" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:41.131761" level="INFO">Opening browser 'Chrome' to base url 'https://www.saucedemo.com/'.</msg>
+<arg>url=https://www.saucedemo.com/</arg>
+<arg>browser=Chrome</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-19T18:02:41.131761" elapsed="2.532030"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:43.663791" level="INFO">Typing text 'standard_user' into text field 'css=input[data-test="username"]'.</msg>
+<arg>css=input[data-test="username"]</arg>
+<arg>standard_user</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:43.663791" elapsed="0.209605"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:43.876416" level="INFO">Typing text 'secret_sauce' into text field 'css=input[data-test="password"]'.</msg>
+<arg>css=input[data-test="password"]</arg>
+<arg>secret_sauce</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:43.873396" elapsed="0.149556"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.022952" level="INFO">Clicking button 'css=input[data-test="login-button"]'.</msg>
+<arg>css=input[data-test="login-button"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.022952" elapsed="0.112325"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:41.130276" elapsed="3.005001"/>
+</kw>
+<kw name="Adicionar item no carrinho" owner="navegacao_demo">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.143291" level="INFO">Clicking button 'css=button[data-test="add-to-cart-sauce-labs-backpack"]'.</msg>
+<arg>${BOTAO_ADICIONAR_NO_CARRINHO}</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.143291" elapsed="0.090055"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.261955" level="INFO">Element 'css=button[data-test="remove-sauce-labs-backpack"]' is displayed.</msg>
+<arg>css=button[data-test="remove-sauce-labs-backpack"]</arg>
+<arg>Remove</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.233346" elapsed="0.028609"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:44.135277" elapsed="0.126678"/>
+</kw>
+<kw name="Verificar indicação de quantidade de produtos no carrinho é igual a 1" owner="navegacao_demo">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.299998" level="INFO">Element 'css=span[data-test="shopping-cart-badge"]' is displayed.</msg>
+<arg>css=span[data-test="shopping-cart-badge"]</arg>
+<arg>1</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.261955" elapsed="0.038043"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:44.261955" elapsed="0.040558"/>
+</kw>
+<kw name="Visualizar produtos do carrinho" owner="navegacao_demo">
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.305134" level="INFO">Clicking element 'css=a[data-test="shopping-cart-link"]'.</msg>
+<arg>${BOTAO_VER_CARRINHO}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.302513" elapsed="0.102610"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:44.302513" elapsed="0.102610"/>
+</kw>
+<kw name="Verificar se possui um item" owner="navegacao_demo">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.437141" level="INFO">Element 'css=div[data-test="inventory-item"]' is displayed.</msg>
+<arg>css=div[data-test="inventory-item"]</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.405123" elapsed="0.032018"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:44.405123" elapsed="0.032018"/>
+</kw>
+<kw name="Iniciar finalizacao da compra" owner="navegacao_demo">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.437141" level="INFO">Clicking button 'css=button[data-test="checkout"]'.</msg>
+<arg>css=button[data-test="checkout"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.437141" elapsed="0.106966"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:44.437141" elapsed="0.109893"/>
+</kw>
+<kw name="Preencher dados de pagamento" owner="navegacao_demo">
+<kw name="First Name" owner="FakerLibrary">
+<msg time="2024-05-19T18:02:44.552215" level="INFO">${Nome} = Levi</msg>
+<var>${Nome}</var>
+<status status="PASS" start="2024-05-19T18:02:44.550691" elapsed="0.001524"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.552215" level="INFO">Typing text 'Levi' into text field 'css=input[data-test="firstName"]'.</msg>
+<arg>css=input[data-test="firstName"]</arg>
+<arg>${Nome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.552215" elapsed="0.142457"/>
+</kw>
+<kw name="Last Name" owner="FakerLibrary">
+<msg time="2024-05-19T18:02:44.694672" level="INFO">${Sobrenome} = Dias</msg>
+<var>${Sobrenome}</var>
+<status status="PASS" start="2024-05-19T18:02:44.694672" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.694672" level="INFO">Typing text 'Dias' into text field 'css=input[data-test="lastName"]'.</msg>
+<arg>css=input[data-test="lastName"]</arg>
+<arg>${Sobrenome}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.694672" elapsed="0.110715"/>
+</kw>
+<kw name="Postcode" owner="FakerLibrary">
+<msg time="2024-05-19T18:02:44.805387" level="INFO">${CodigoPostal} = 70321904</msg>
+<var>${CodigoPostal}</var>
+<doc>Randomly returns a postcode.
+:param formatted: True to allow formatted postcodes, else False (default True)
+:example formatted: '41224-212' '83992-291' '12324322'
+:example raw: '43920231' '34239530'</doc>
+<status status="PASS" start="2024-05-19T18:02:44.805387" elapsed="0.000000"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.805387" level="INFO">Typing text '70321904' into text field 'css=input[data-test="postalCode"]'.</msg>
+<arg>css=input[data-test="postalCode"]</arg>
+<arg>${CodigoPostal}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.805387" elapsed="0.161223"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:44.966610" level="INFO">Clicking element 'css=input[data-test="continue"]'.</msg>
+<arg>css=input[data-test="continue"]</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:44.966610" elapsed="0.090713"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:44.547034" elapsed="0.510289"/>
+</kw>
+<kw name="Verificar resumo da compra" owner="navegacao_demo">
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:45.058238" level="INFO">Clicking button 'css=button[data-test="finish"]'.</msg>
+<arg>css=button[data-test="finish"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:45.058238" elapsed="0.075054"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:45.058238" elapsed="0.082914"/>
+</kw>
+<kw name="Validar finalização da compra" owner="navegacao_demo">
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:45.157557" level="INFO">Element 'css=span[data-test="title"]' is displayed.</msg>
+<arg>css=span[data-test="title"]</arg>
+<arg>Checkout: Complete!</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-19T18:02:45.142195" elapsed="0.015362"/>
+</kw>
+<kw name="Element Should Be Visible" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:45.173607" level="INFO">Element 'css=h2[data-test="complete-header"]' is displayed.</msg>
+<arg>css=h2[data-test="complete-header"]</arg>
+<arg>Thank you for your order!</arg>
+<doc>Verifies that the element identified by ``locator`` is visible.</doc>
+<status status="PASS" start="2024-05-19T18:02:45.157557" elapsed="0.016050"/>
+</kw>
+<kw name="Capture Page Screenshot" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:45.323859" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="prints/selenium-screenshot-3.png"&gt;&lt;img src="prints/selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<arg>prints/selenium-screenshot-{index}.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<status status="PASS" start="2024-05-19T18:02:45.173607" elapsed="0.157099"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2024-05-19T18:02:45.330706" level="INFO">Clicking button 'css=button[data-test="back-to-products"]'.</msg>
+<arg>css=button[data-test="back-to-products"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2024-05-19T18:02:45.330706" elapsed="0.068430"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:45.142195" elapsed="0.256941"/>
+</kw>
+<kw name="Fechar o navegador" owner="setup_teardown" type="TEARDOWN">
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-19T18:02:45.406159" elapsed="2.165224"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:45.405649" elapsed="2.165734"/>
+</kw>
+<status status="PASS" start="2024-05-19T18:02:41.119212" elapsed="6.452171"/>
+</test>
+<status status="PASS" start="2024-05-19T18:02:40.423200" elapsed="7.154145"/>
+</suite>
+<status status="PASS" start="2024-05-19T18:02:40.417882" elapsed="7.159463"/>
+</suite>
+<status status="PASS" start="2024-05-19T18:02:40.384337" elapsed="7.199614"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Testes-demo">Testes-demo</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Testes">Testes-demo.Testes</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Navegacao">Testes-demo.Testes.Navegacao</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
