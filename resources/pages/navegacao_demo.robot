@@ -15,26 +15,23 @@ ${CAMPO_NOME_ITEM}                css=div[data-test="inventory-item-name"]
 
 *** Keywords ***
 
-Adicionar item no carrinho
+Dado que eu adicione um item no carrinho
     Click Button    ${BOTAO_ADICIONAR_NO_CARRINHO}    
     Element Should Be Visible    css=button[data-test="remove-sauce-labs-backpack"]    Remove
 
-Visualizar produtos do carrinho
+E visualizualize os produtos do carrinho
     Click Element   ${BOTAO_VER_CARRINHO}
 
-Verificar se possui um item
+E verifique se possui um item
     Element Should Be Visible    css=div[data-test="inventory-item"]
 
-Verificar indicação de quantidade de produtos no carrinho é igual a 1
-    Element Should Be Visible    css=span[data-test="shopping-cart-badge"]    1
+E verifique que a indicação de quantidade de produtos no carrinho é igual a ${Quantidade}
+    Element Should Be Visible    css=span[data-test="shopping-cart-badge"]    ${Quantidade}
 
-Verificar indicação de quantidade de produtos no carrinho é igual a 5
-    Element Should Be Visible    css=span[data-test="shopping-cart-badge"]    5
-
-Iniciar finalizacao da compra
+E inicialize a finalizacao da compra
     Click Button    css=button[data-test="checkout"]
 
-Preencher dados de pagamento
+E preencha os dados de pagamento
     ${Nome}         FakerLibrary.First Name
     Input Text      css=input[data-test="firstName"]    ${Nome} 
     ${Sobrenome}    FakerLibrary.Last Name
@@ -43,28 +40,29 @@ Preencher dados de pagamento
     Input Text      css=input[data-test="postalCode"]   ${CodigoPostal} 
     Click Element   css=input[data-test="continue"]   
 
-Verificar resumo da compra
+E verifique resumo da compra
     Click Button    css=button[data-test="finish"]
 
-Validar finalização da compra
+Então deve apresentar a mensagem de finalização da compra
     Element Should Be Visible    css=span[data-test="title"]            Checkout: Complete!
     Element Should Be Visible    css=h2[data-test="complete-header"]    Thank you for your order!
-    Capture Page Screenshot      prints/selenium-screenshot-{index}.png
     Click Button    css=button[data-test="back-to-products"]
 
-Remover Produto do carrinho
+E remova um produto do carrinho
     Click Button    css=button[data-test="remove-sauce-labs-backpack"]
     Page Should Not Contain Element   css=div[data-test="inventory-item"]
 
-Retornar a Tela Principal
+Entao retorne a Tela Principal
     Click Button              css=button[data-test="continue-shopping"]
     Wait Until Location Is    https://www.saucedemo.com/inventory.html
 
-Vizualizar mais detalhes do produto
+Dado que eu selecione para vizualizar mais detalhes do produto
     Click Element    css=div[data-test="inventory-item-name"]
+
+Entao sou redicionado para os detalhes do produto escolhido
     Page Should Contain Element    css=div[data-test="inventory-item"]
 
-Preencher dados obrigatórios de pagamento
+Entao validar mensagens de indicacao que os campos sao obrigatorios
     Click Element   css=input[data-test="continue"]   
     Element Should Be Visible    css=h3[data-test="error"]    Error: First Name is required
     ${Nome}         FakerLibrary.First Name
@@ -77,7 +75,7 @@ Preencher dados obrigatórios de pagamento
     Element Should Be Visible    css=h3[data-test="error"]    Error: Postal Code is required
 
 
-Adicionar 5 itens no carrinho
+Dado que eu adicione 5 itens no carrinho
     FOR    ${indice}    ${item}    IN ENUMERATE    @{selecionar_item}
         Click Button    ${item}        
     END
